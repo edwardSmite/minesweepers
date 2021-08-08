@@ -9,18 +9,18 @@ export default function Board(props) {
     }, [props.rows, props.columns])
 
     function renderSquare(i) {
-        function handleClick(i) {
+        function handleClick(id) {
             var newSquares = squares
-            if (checkMine(i)) {
-                newSquares[i] = "X"
+            if (checkMine(id)) {
+                newSquares[id] = "X"
             } else {
-                newSquares[i] = ""
+                newSquares[id] = ""
             }
             setSquares([...newSquares])
         }
-        function checkMine(i) {
+        function checkMine(id) {
             for (let j = 0; j < props.mines; j++) {
-                if (i === (props.minesArray[j][0] * props.minesArray[j][1])) {
+                if (id === (props.minesArray[j][0] * props.minesArray[j][1])) {
                     return true
                 }
             }

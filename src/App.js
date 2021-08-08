@@ -13,7 +13,8 @@ export default function App() {
 
 	useEffect(() => {
 		MineGenerator(rows, columns, mines)
-	}, [mines])
+		// eslint-disable-next-line
+	}, [mines, rows, columns])
 
 	function handleRowsChange(e) {
 		e.preventDefault()
